@@ -5,17 +5,14 @@ from interpreter import run_all
 st.set_page_config(page_title="R-like Interpreter", layout="wide")
 st.title("Lexical Analyzer Development R-like Scripting")
 
-# Upload file (optional)
 uploaded = st.file_uploader(
     "Upload file .r / .txt",
     type=["r", "txt"]
 )
 
-# Init session state
 if "code" not in st.session_state:
     st.session_state.code = ""
 
-# Jika upload file, isi editor dengan isi file
 if uploaded is not None:
     st.session_state.code = uploaded.read().decode("utf-8", errors="replace")
     st.success(f"File berhasil di-load: {uploaded.name}")
