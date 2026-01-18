@@ -3,11 +3,11 @@ import pandas as pd
 from interpreter import run_all
 
 st.set_page_config(page_title="R-like Interpreter", layout="wide")
-st.title("R-like Interpreter (PLY)")
+st.title("Lexical Analyzer Development R-like Scripting")
 
 # Upload file (optional)
 uploaded = st.file_uploader(
-    "Upload file .r / .txt (opsional, akan mengganti isi editor)",
+    "Upload file .r / .txt",
     type=["r", "txt"]
 )
 
