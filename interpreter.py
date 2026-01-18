@@ -4,9 +4,8 @@ from rparser import build_parser
 class RuntimeErrorR(Exception):
     pass
 
-# ----------------------------
-# Lexical (token dump)
-# ----------------------------
+
+# Lexical 
 def lex_tokens(source: str):
     lexer = build_lexer()
     lexer.input(source)
@@ -23,17 +22,14 @@ def lex_tokens(source: str):
         })
     return out
 
-# ----------------------------
+
 # Syntax (AST)
-# ----------------------------
 def parse_ast(source: str):
     lexer = build_lexer()
     parser = build_parser()
     return parser.parse(source, lexer=lexer)
 
-# ----------------------------
-# Interpreter helpers
-# ----------------------------
+
 def eval_expr(node, env):
     t = node[0]
 
@@ -128,9 +124,7 @@ def exec_stmt(node, env, out):
 
     raise RuntimeErrorR(f"Unknown stmt node: {kind}")
 
-# ----------------------------
-# Main runner for Streamlit
-# ----------------------------
+
 def run_all(source: str):
     """
     returns dict:
